@@ -1,0 +1,94 @@
+cocos2d-xの修正について
+
+ベースとなるcocos2d-xのバージョンは、
+cocos2d-x 3.15.1
+
+・MP3, Spineのコードがバイナリーに含まれないようにしている。
+・cocos2d-xのバグに対する修正。
+・cocos2d-xに不足している機能を追加。
+・Runtimeというビルドターゲットを追加。（配布ゲームに同梱するplayer.exeのビルド用。）
+・速度優先のビルド設定に変更
+
+基本的には、USE_AGTKのifdefで修正が有効になるようにしている。(各VCプロジェクトで定義。)
+C++のソースでないものについてはifdefが使えないので、
+直接ファイルを修正していたり、ファイルを削除していたりする。
+
+以下、ざっとプロジェクト設定の変更点を書き出してみる。（間違いがあれば修正お願いします。）
+
+libcocos2d.vcxproj
+「指定の警告を無効にする」に4819を追加。
+「ビルドイベント」＞「リンク目のイベント」
+	xcopyの/Dオプションを追加。
+	external\spidermonkey\prebuilt\win32\*.*のコピーを追加。
+リンクから除外：
+	libSpine.lib
+	libmpg123.lib
+リンクに追加：
+	mozjs-33.lib
+	dinput.lib
+インクルードに追加：
+	$(EngineRoot)external\spidermonkey\include\win32
+	$(EngineRoot)external\ImGUI
+ソースを追加：
+	external\ImGUI\CCIMGUI.cpp
+	external\ImGUI\imgui.cpp
+	external\ImGUI\IMGUIGLViewImpl.cpp
+	external\ImGUI\ImGuiLayer.cpp
+	external\ImGUI\Imgui_demo.cpp
+	external\ImGUI\imgui_draw.cpp
+	external\ImGUI\imgui_impl_glfw_win32.cpp
+	external\ImGUI\imgui_ja_gryph_ranges.cpp
+	base\CCController-win32.cpp
+	base\CCController.cpp
+	base\CCEventController.cpp
+	base\CCEventListenerController.cpp
+	external\spidermonkey\include\win32\js-config.h
+	...
+	external\spidermonkey\include\win32\js\WeakMapPtr.h
+	external\spidermonkey\include\win32\mozilla\Alignment.h
+	...
+	external\spidermonkey\include\win32\mozilla\WindowsVersion.h
+	external\spidermonkey\include\win32\mozzconf.h
+	external\spidermonkey\include\win32\zconf.h
+	external\spidermonkey\include\win32\zlib.h
+
+	external\ImGUI\CCIMGUI.h
+	external\ImGUI\imconfig.h
+	external\ImGUI\imgui.h
+	external\ImGUI\IMGUIGLViewImpl.h
+	external\ImGUI\ImGuiLayer.h
+	external\ImGUI\imgui_impl_glfw.h
+	external\ImGUI\imgui_internal.h
+	external\ImGUI\stb_rect_pack.h
+	external\ImGUI\stb_textedit.h
+	external\ImGUI\stb_truetype.h
+	base\CCController.h
+	base\CCEventContoller.h
+	base\CCEventListernerController.h
+
+libjscocos2d.vcxproj
+参照削除：
+	auto\jsb_cocos2dx_spine_auto.cpp
+	manual\spine\jsb_cocos2dx_spine_manual.cpp
+	auto\jsb_cocos2dx_spine_auto.hpp
+	manual\spine\jsb_cocos2dx_spine_manula.h
+define変更：
+	_USR_JSSTATIC→_USR_JSDLL
+includeパス削除：
+	manual\spine
+
+cocos\scripting\js-bindings\script\jsb.js
+	script/jsb_spine.jsのインクルード処理を削除。
+
+cocos\scripting\js-bindings\script\jsb_loaders.js
+	"mp3"の登録削除。
+
+配下のファイルを削除：
+	cocos2d\cocos\editor-support\spine
+	cocos2d\cocos\editor-support\spine\proj.win32
+
+ファイルを削除：
+	cocos\scripting\js-bindings\auto\api\jsb_cocos2dx_spine_auto_api.js
+	cocos\scripting\js-bindings\script\jsb_spine.js
+
+以上

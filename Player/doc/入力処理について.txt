@@ -1,0 +1,75 @@
+入力処理について
+※調査した結果をまとめます。
+
+InputManager.h/InputManager.cppで処理します。
+
+物理デバイスからの入力は、イベントリスナーを通して取得されます。
+
+GameSceneの初期処理で、InputEventListener::registerInputListener()が呼び出され、
+registerInputListener()にてイベントリスナーの登録が行われます。
+※登録解除は、GameSceneであるNodeの破棄時に自動解除されます。
+
+イベントリスナーの登録で、次を取得して処理できるようになる。
+・ゲームコントローラーの接続、切断、デジタルボタンの押し、離し、リピート、アナログ入力の更新(EventListenerController)
+・マウスのボタンの押し、離し、移動、スクロール入力(EventListenerMouse)
+・キーボードのキー押し、離し、文字入力(EventListenerKeyboard)
+入力された生データは、InputManager::_inputDataRowに格納される。
+
+キーボード入力：
+複数キー同時押しがあるため、リストの形でデータを保持している。
+・キーが押されたとき、cocos2d-xのキーコードをアクツクMVのキーコードに変換して、スキャンコードと共に登録処理へ。
+　登録処理では、_inputListのキーコードに対応するInputData（を無ければ作成＆登録し、そこ）に押された情報を設定する。
+　さらに、_pressedDataListに登録する。
+・キーが離されたとき、cocos2d-xのキーコードをアクツクMVのキーコードに変換して、スキャンコードと共に解除処理へ。
+　解除処理では、_inputListにキーコードに対応するInputDataがあれば離された情報を設定する。
+　さらに、_pressedDataListからさ駆除する。
+・文字キーが押されたとき、_pressedDataListの先頭の項目を除外し、取り出したInputDataに対して_charDataを設定している。
+　※推測：キーが押されて通知されるキーコードと、文字キーが押されて通知されるキーコードが異なるケースがあり、それを解消するための処理？？？
+todo: _inputList内の全検索をしないようにしたほうが良い。
+
+キーボード入力データ：
+	_keyCode: キー入力が通知されたときのキーコード。
+	_charCode: デフォルト-1。文字キー入力が通知された場合にそのキーコードが設定される。
+	_scancode: スキャンコード
+	_press: キーが押されているか離されているかの状態。押されている状態ならtrue。デフォルトfalse。
+	_release: update()処理するとキーが離された瞬間のときtrueとなる。デフォルトfalse。
+	_trigger: update()処理するとキーが押された瞬間のときtrueとなる。デフォルトfalse。
+	_updateTrigger: キー押された入力があったときfalseに。update()処理したらtrueに。デフォルトtrue。
+	_updateRelease: キー離された入力があったとき、falseに。update()処理したらtrueに。デフォルトtrue。
+
+キー押されたとき
+	_charCode = -1
+	_scancode設定。
+	_updateTrigger = false;
+	_trigger = true;
+	_press = true;
+
+キー離された時
+	_press = false;
+	_updateRelease = false;
+	_release = true;
+
+InputManager::update()とInputManager::afterUpdate()は、スケジューラーから呼びだされるようにしてある。
+InputManager::afterUpdate()では、ゲームプレイヤーにコントローラーを自動割り当てする処理を行っている。
+
+InputManager::update()では、次のような処理が行われている。
+・コントローラー初回接続チェック。
+・生入力データ更新処理。
+・入力コントローラーの更新？
+・コントローラー割り当てのないゲームプレイヤーのコントローラーが抜かれたりコントローラーIDが未設定にされていたら解除しコントローラーIDを未設定に、
+　コントローラーIDが明示的に指定されたときに割り当てる処理。InputManager::afterUpdate()と役割分担をしている。
+・マウスポインターの座標を算出し、プロジェクト共通変数「マウス座標X」「マウス座標Y」に設定する。
+
+InputManager
+	_inputControllerList: 16+1個の入力機器に対応する入力コントローラー辞書が格納される。-1: キーボード・マウス, 0～: ゲームコントローラー
+	_selectInputControllerList: ゲームプレイヤーに設定された入力コントローラー辞書が格納される。
+
+InputController
+	_inputDataRaw, _inputGamepadData, _inputKeyboardData, _inputMouseDataは、InputManagerやInputManager::_inputDataRawのメンバーの参照。
+
+キャプチャー対応について：次のような挙動となるよう実装している。
+・物理デバイスからの入力を一旦プールし、InputManager::update()のタイミングで、プールした入力データを受け取るようにしている。
+・プールした入力データをゲームフレームと結び付けて保存すると、リプレイ用データとなる。リプレイ時に乱数列が異なると、動きが変わってしまうので、キャプチャー開始時に乱数シードを生成し、srand()で初期化するようにしている。
+・リプレイ用データを読み込んで、ゲームフレームの進行に合わせて入力データを処理させると、キャプチャーした時と同じ動きをするようになる。ただし乱数列が同じになるようキャプチャー開始時のランダムシードでsrand()するようにしている。
+
+以上

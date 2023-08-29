@@ -1,0 +1,24 @@
+# proj.win32
+/cocos2d/cocos/2d/Debug.*/
+/cocos2d/cocos/2d/Release.*/
+/cocos2d/cocos/editor-support/spine/proj.win32/Debug.*/
+/cocos2d/cocos/editor-support/spine/proj.win32/Release.*/
+/cocos2d/external/Box2D/proj.win32/Debug.*/
+/cocos2d/external/Box2D/proj.win32/Release.*/
+/cocos2d/external/recast/proj.win32/Debug.*/
+/cocos2d/external/recast/proj.win32/Release.*/
+/cocos2d/external/bullet/proj.win32/Debug.*/
+/cocos2d/external/bullet/proj.win32/Release.*/
+/proj.win32/Debug.*/
+/proj.win32/Release.*/
+*.VC.db
+*.opendb
+*.suo
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile

@@ -1,0 +1,223 @@
+Classes
+ ├ Data		ゲームプロジェクトデータを読み込んで保持するクラス。ゲームプレイ中のデータを保持するクラス。
+ ｜  ├ AnimationData.cpp
+ ｜  ├ AnimationData.h		アニメーションデータを読み込んで保持。
+ ｜  ├ AssetData.cpp
+ ｜  ├ AssetData.h		各種素材設定、プラグイン設定を読み込んで保持。（素材は、画像、フォント、テキスト、動画、BGM、SE、音声、プロジェクト共通変数、プロジェクト共通スイッチ、アニメ専用。）
+ ｜  ├ ObjectActionLinkConditionData.cpp
+ ｜  ├ ObjectActionLinkConditionData.h	アクションリンク条件データを読み込んで保持。
+ ｜  ├ ObjectCommandData.cpp
+ ｜  ├ ObjectCommandData.h	アクションコマンドデータを読み込んで保持。
+ ｜  ├ ObjectData.cpp
+ ｜  ├ ObjectData.h		オブジェクトデータを読み込んで保持。
+ ｜  ├ OthersData.cpp
+ ｜  ├ OthersData.h		シーンのその他のデータを読み込んで保持。
+ ｜  ├ PlayData.cpp
+ ｜  ├ PlayData.h		ゲームプレイ中のプロジェクト共通スイッチ・変数、オブジェクトのデータを保持。
+ ｜  ├ ProjectData.cpp
+ ｜  ├ ProjectData.h		画面遷移、ポータル、ゲーム情報、サウンド設定、アクションプログラム設定、操作キー管理設定、プレーヤーキャラクター管理設定、パーティクル画像設定、プロジェクトデータを読み込んで、保持。
+ ｜  ├ SceneData.cpp
+ ｜  ├ SceneData.h		シーンの物理演算パーツデータ、シーン配置オブジェクトデータ、その他データ、レイヤーデータ、シーンデータを読み込んで保持。
+ ｜  ├ TileData.cpp
+ ｜  └ TileData.h		タイル、タイルセットデータを読み込んで保持。
+ ├ External	外部ライブラリ
+ ｜  ├ collision	当たり判定クラス（4分木）, http://brbranch.jp/blog/201607/cocos2d-x/fourtreecollision/
+ ｜  ｜  ├ collision_point.h
+ ｜  ｜  ├ CollisionComponent.cpp
+ ｜  ｜  ├ CollisionComponent.hpp
+ ｜  ｜  ├ CollisionDetaction.cpp	DetactionはDetectionのタイプミスと思われる。修正したい。
+ ｜  ｜  ├ CollisionDetaction.hpp
+ ｜  ｜  ├ CollisionUtils.cpp
+ ｜  ｜  └ CollisionUtils.hpp
+ ｜  ├ gif		GIFライブラリ, http://giflib.sourceforge.net/
+ ｜  ｜  ├ dgif_lib.c
+ ｜  ｜  ├ egif_lib.c
+ ｜  ｜  ├ gif_err.c
+ ｜  ｜  ├ gif_font.c
+ ｜  ｜  ├ gif_hash.c
+ ｜  ｜  ├ gif_hash.h
+ ｜  ｜  ├ gif_lib.h
+ ｜  ｜  ├ gif_lib_private.h
+ ｜  ｜  ├ gifalloc.c
+ ｜  ｜  ├ openbsd-reallocarray.c
+ ｜  ｜  └ quantize.c
+ ｜  ├ SplineInterp	スプライン補間クラス
+ ｜  ｜  ├ SplineInterp.cpp
+ ｜  ｜  └ SplineInterp.h
+ ｜  ├ SSPlayer		SpriteStudio6ライブラリ, http://www.webtech.co.jp/spritestudio/
+ ｜  ├ Twofish		Twofishライブラリ
+ ｜  ├ vlc		libVLCライブラリ, http://www.videolan.org/vlc/index.ja.html
+ ｜  └ ColTrees.h	当たり判定クラスのファイルが置かれている？　不使用のため削除したい。
+ ├ Lib
+ ｜  ├ Jsb		スクリプトAPIの実装クラス
+ ｜  ｜  ├ jsb_agtk_animations.cpp
+ ｜  ｜  ├ jsb_agtk_animations.h
+ ｜  ｜  ├ jsb_agtk_bgms.cpp
+ ｜  ｜  ├ jsb_agtk_bgms.h
+ ｜  ｜  ├ jsb_agtk_fonts.cpp
+ ｜  ｜  ├ jsb_agtk_fonts.h
+ ｜  ｜  ├ jsb_agtk_images.cpp
+ ｜  ｜  ├ jsb_agtk_images.h
+ ｜  ｜  ├ jsb_agtk_movies.cpp
+ ｜  ｜  ├ jsb_agtk_movies.h
+ ｜  ｜  ├ jsb_agtk_objectInstances.cpp
+ ｜  ｜  ├ jsb_agtk_objectInstances.h
+ ｜  ｜  ├ jsb_agtk_objects.cpp
+ ｜  ｜  ├ jsb_agtk_objects.h
+ ｜  ｜  ├ jsb_agtk_portals.cpp
+ ｜  ｜  ├ jsb_agtk_portals.h
+ ｜  ｜  ├ jsb_agtk_sceneInstances.cpp
+ ｜  ｜  ├ jsb_agtk_sceneInstances.h
+ ｜  ｜  ├ jsb_agtk_scenes.cpp
+ ｜  ｜  ├ jsb_agtk_scenes.h
+ ｜  ｜  ├ jsb_agtk_ses.cpp
+ ｜  ｜  ├ jsb_agtk_ses.h
+ ｜  ｜  ├ jsb_agtk_settings.cpp
+ ｜  ｜  ├ jsb_agtk_settings.h
+ ｜  ｜  ├ jsb_agtk_texts.cpp
+ ｜  ｜  ├ jsb_agtk_texts.h
+ ｜  ｜  ├ jsb_agtk_tilesets.cpp
+ ｜  ｜  ├ jsb_agtk_tilesets.h
+ ｜  ｜  ├ jsb_agtk_voices.cpp
+ ｜  ｜  └ jsb_agtk_voices.h
+ ｜  ├ Player	プレイヤークラス群 アニメーション管理
+ ｜  ｜  ├ BasePlayer.cpp
+ ｜  ｜  ├ BasePlayer.h		画像アニメ、GIFアニメ、SpriteStudioアニメの基本クラス。
+ ｜  ｜  ├ GifPlayer.cpp
+ ｜  ｜  ├ GifPlayer.h		GIFプレイヤークラス
+ ｜  ｜  ├ ImagePlayer.cpp
+ ｜  ｜  ├ ImagePlayer.h	イメージプレイヤークラス
+ ｜  ｜  ├ SpinePlayer.cpp
+ ｜  ｜  ├ SpinePlayer.h	Spineプレイヤークラス
+ ｜  ｜  ├ SSPlayer.cpp
+ ｜  ｜  └ SSPlayer.h	Sprite Studio プレイヤークラス
+ ｜  ├ Runtime		ランタイム（配布用プレーヤー）でのみ使われる。暗号化データを読み出せるようにするクラス
+ ｜  ｜  ├ FileUtils-runtime.cpp
+ ｜  ｜  └ FileUtils-runtime.h
+ ｜  ├ Animation.cpp
+ ｜  ├ Animation.h	モーションアニメーションクラス
+	　アニメーションを管理します。SpriteStudio,Spine,Gifなどへ繋ぎ込めるように抽象化しています。
+ ｜  ├ BaseLayer.cpp
+ ｜  ├ BaseLayer.h	「レイヤー基クラス。継承先では、必ずupdateメソッド内でBaseLayer::updateメソッドを呼ぶようにする。回転・反転アニメーション処理を行うため。」とある。
+ ｜  ├ Bullet.cpp
+ ｜  ├ Bullet.h		弾クラス。agtk::Objectに弾の挙動（目標に向かって移動など）を付加している様子。
+ ｜  ├ Camera.cpp
+ ｜  ├ Camera.h		カメラクラス。プレイヤーオブジェクトを追従するなどカメラの機能を実装している様子。
+ ｜  ├ CameraObject.cpp
+ ｜  ├ CameraObject.h	カメラをコースに沿って移動させる処理をするクラスっぽい。
+ ｜  ├ Collision.cpp
+ ｜  ├ Collision.h	視野・照明の当たり判定、タイルの壁判定を処理するクラスの様子。
+ ｜  ├ Common.cpp
+ ｜  ├ Common.h		共通して使われるクラスを定義しているっぽい。雑多に入れている印象。
+ ｜  ├ Course.cpp
+ ｜  ├ Course.h		折れ線・カーブ・円のコースの処理クラスっぽい。
+ ｜  ├ Effect.cpp
+ ｜  ├ Effect.h		エフェクトアニメクラス。「オブジェクトにエフェクトを表示」にも関連。
+ ｜  ├ Gui.cpp
+ ｜  ├ Gui.h		「オブジェクトにテキスト・変数値を表示」や「テキストを表示」「テキストをスクロール表示」を処理するクラスっぽい。
+ ｜  ├ Macros.h		各種define定義。
+ ｜  ├ Object.cpp
+ ｜  ├ Object.h		オブジェクトクラス。無敵、ダメージ、強制移動、テンプレート移動、コース移動、ループ移動、残像関連のクラスも定義されている様子。
+	　・ObjectInvincible:オブジェクト点滅処理を行います。
+	　・ObjectWallInterset: 壁判定（※必要ないかもしれません）
+	　・ObjectCollision: オブジェクトあたり判定を行います。「External/collision」ライブラリを使って、あたり判定オブジェクトを得て、このクラスで細分化判定を行っています。
+	　・ObjectMovement: オブジェクト移動処理（移動、ジャンプ、重力、水中など）
+	　・ObjectAction: オブジェクトアクションを行います。アクションリンク、その他実行アクションの機能はこちらで管理します。実行アクション追加メソッド（Object::updateOtherExecAction)
+ ｜  ├ ObjectCommand.cpp
+ ｜  ├ ObjectCommand.h	アクションプログラム用アクションコマンド、リンク条件を処理するクラスと思われる。
+ ｜  ├ Particle.cpp
+ ｜  ├ Particle.h	パーティクルクラス。
+ ｜  ├ PhysicsObject.cpp
+ ｜  ├ PhysicsObject.h	物理演算パーツクラス。
+ ｜  ├ Player.cpp
+ ｜  ├ Player.h		オブジェクトのアニメーション表示用クラス。複雑な処理になっているのですっきりさせたい。RenderTextureは必要なときのみの使用にしたい。判定データを軽い処理で取得できるようにしたい。
+ ｜  ├ Portal.cpp
+ ｜  ├ Portal.h		ポータルクラス。
+ ｜  ├ RenderTexture.cpp
+ ｜  ├ RenderTexture.h	レンダーテクスチャークラス。不必要に使わないようにしたい。
+ ｜  ├ Scene.cpp
+ ｜  ├ Scene.h		シーン、シーンレイヤー、変数タイマー、シーン重力、ゲームスピード、画面揺らす（フェードも？）のクラス。SceneWaterは恐らく使っていないので、確認が取れたら削除する。
+	　シーンでは、シーン情報、カメラ、背景、レイヤー、オブジェクト、タイルを管理します。
+ ｜  ├ Shader.cpp
+ ｜  ├ Shader.h		シェーダークラス。
+ ｜  ├ SharedMemory.cpp
+ ｜  ├ SharedMemory.h	共有メモリクラス。（エディターのパーティクルプレビューでプレイヤー画面をキャプチャーした画像を共有メモリ経由で受け渡している。）
+ ｜  ├ Slope.cpp
+ ｜  ├ Slope.h		坂クラス。
+ ｜  ├ Tile.cpp
+ ｜  ├ Tile.h		タイル、サブタイル（オートタイル用）、タイルセットクラス。
+	　タイルを管理します。Tilesetでリソース管理、TileでSpriteを管理します。
+ ｜  ├ VideoSprite.cpp
+ ｜  ├ VideoSprite.h	動画スプライトクラス。（libVLCを使っている。）
+ ｜  ├ ViewportLight.cpp
+ ｜  ├ ViewportLight.h	視野・照明クラス。タイマーカラー、スプライト、オブジェクト、レイヤーに関連する処理あり。
+ ｜  ├ WebSocket.cpp
+ ｜  └ WebSocket.h	WebSocketクラス。（主に、エディターと情報をやり取りするために使用している。）
+ ├ Manager
+ ｜  ├ AudioManager.cpp
+ ｜  ├ AudioManager.h	オーディオ管理クラス。（BGM, SE, 音声の再生を管理。）
+ ｜  ├ BulletManager.cpp
+ ｜  ├ BulletManager.h	オブジェクトの「弾の設定」に関して管理しているクラスと思われる。
+ ｜  ├ DebugManager.cpp
+ ｜  ├ DebugManager.h	デバッグメニュー、デバッグ表示、デバッグ機能を管理しているクラスと思われる。
+ ｜  ├ DllPluginManager.cpp
+ ｜  ├ DllPluginManager.h	DLLプラグイン管理クラス。（現時点ではDLLプラグインに関しての情報は公開していない。）
+ ｜  ├ EffectManager.cpp
+ ｜  ├ EffectManager.h		エフェクトアニメ管理クラス。
+ ｜  ├ FontManager.cpp
+ ｜  ├ FontManager.h		フォント管理クラス。（アクツクMVでは、画像フォント・TTFフォントを扱える。）
+ ｜  ├ GameManager.cpp
+ ｜  ├ GameManager.h		ゲーム全体を管理するクラスと思われる。
+ ｜  ├ GuiManager.cpp
+ ｜  ├ GuiManager.h		「オブジェクトにテキスト・変数値を表示」や「テキストを表示」「テキストをスクロール表示」を管理するクラス
+ ｜  ├ ImageManager.cpp
+ ｜  ├ ImageManager.h		「画像を表示」を管理するクラスと思われる。
+ ｜  ├ InputManager.cpp
+ ｜  ├ InputManager.h		入力を管理するクラス。（キーボード・マウス、ゲームコントローラーからの入力。）
+ ｜  ├ JavascriptManager.cpp
+ ｜  ├ JavascriptManager.h	スクリプトプラグインを管理するクラス。（対応しているスクリプトはJavaScriptのみ。）
+ ｜  ├ MovieManager.cpp
+ ｜  ├ MovieManager.h		「動画を再生」を管理するクラスと思われる。
+ ｜  ├ ParticleManager.cpp
+ ｜  ├ ParticleManager.h	パーティクル管理クラス。（パーティクルプレビュー用のキャプチャー、デバッグ表示）
+ ｜  ├ PrimitiveManager.cpp
+ ｜  └ PrimitiveManager.h	デバッグ表示用のプリミティブ表示管理クラスと思われる。（直線、円、円盤、四角、板、楕円、ポリゴン）
+ ├ AppDelegate.cpp
+ ├ AppDelegate.h		cocos2d-xのアプリケーションの挙動を定義するクラス。
+ ├ AppMacros.h			スケジュールの優先度を定義しているだけ。
+ ├ GameScene.cpp
+ ├ GameScene.h			ゲーム画面表示用シーンクラスと思われる。シーン切り替え演出と関連。
+ ├ LoadingScene.cpp
+ ├ LoadingScene.h		ロード中画面表示用シーンクラスと思われる。
+ ├ LogoScene.cpp
+ ├ LogoScene.h			ロゴ画面表示用シーンクラス。（暗号化されたロゴ画像が存在しないとシーン作成に失敗するようにしている。）
+ ├ ViewerScene.cpp
+ └ ViewerScene.h		クラスの動作確認などのデバッグ向けシーンクラスと思われる。（動画デバッグ用）
+
+[ループ処理]
+
+- コントローラーから入力データを取り込む。
+- シーン更新
+　　- カメラ更新
+　　- 重力、水面処理
+　　- 背景更新
+　　- レイヤー更新（レイヤー毎）
+　　　　- オブジェクト更新
+　　　　　　- 入力チェック
+　　　　　　- アクション更新
+　　　　　　　　- アクションリンク条件チェック
+　　　　　　　　- アクション切り替え
+　　　　　　- アニメーション更新（ImagePlayer,GifPlayer,SSPlayer）
+　　　　　　- 移動、スケール、回転処理
+　　　　　　- 壁判定
+　　　　　　- デバッグ表示処理（壁判定領域、攻撃判定領域、当たり判定領域）
+　　　　　　- オブジェクト点滅処理
+　　　　　　- 弾発射処理
+　　　　- タイル更新
+　　　　　　- タイルアニメーション
+　　　　　　- タイルギミック
+　　　　- オブジェクトの攻撃判定、当たり判定
+　　　　- オブジェクト後処理
+　　- レンダーテクスチャ更新、シェーダー更新
+- プリミティブ更新（線、矩形、円、楕円）
+- デバッグウインドウ更新、描画

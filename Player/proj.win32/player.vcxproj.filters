@@ -1,0 +1,1001 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Data">
+      <UniqueIdentifier>{754d8623-b7b4-4ee7-923c-04fcdec35684}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Lib">
+      <UniqueIdentifier>{5246411f-181e-4961-9100-9eb18015ef66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Lib\Player">
+      <UniqueIdentifier>{6bc9ce23-21da-45af-ac04-5eeaf42193fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\External">
+      <UniqueIdentifier>{596fd1d3-51f9-4c07-9ee8-b72fc6a1c8d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\External\gif">
+      <UniqueIdentifier>{515b0528-09f9-4cae-958d-a59f239e19ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\External\collision">
+      <UniqueIdentifier>{d36881d2-1ebc-4b94-91a0-7ba3b667a1a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\External\SSPlayer">
+      <UniqueIdentifier>{099bcb6a-97fd-4509-93dd-5f62b283cef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\External\SSPlayer\Common">
+      <UniqueIdentifier>{b30eb2aa-f411-4480-91f2-ea2d929c0f11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\External\SSPlayer\Common\Animator">
+      <UniqueIdentifier>{eba87249-ce15-402d-b268-d6c4cc3325be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\External\SSPlayer\Common\Helper">
+      <UniqueIdentifier>{b2b035cf-c3b9-4828-b5ab-d1844ca458d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\External\SSPlayer\Common\Loader">
+      <UniqueIdentifier>{b3a902b7-ca97-40de-bf3c-c687c5b2af65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Manager">
+      <UniqueIdentifier>{3f3fbfd2-1aea-4cd1-9505-a0d069c3b491}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\External\vlc">
+      <UniqueIdentifier>{7bb9fab3-022c-4290-af50-e938bcf34bbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\External\vlc\plugins">
+      <UniqueIdentifier>{fa6c54a6-c3f2-4c35-a2ef-43e67106fd82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\External\SplineInterp">
+      <UniqueIdentifier>{e1e3bb20-eb0a-4e9f-a26c-24e96c6d6b05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Lib\Jsb">
+      <UniqueIdentifier>{0d537eef-2820-4fce-97d7-46c8b8c47059}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Lib\Runtime">
+      <UniqueIdentifier>{887a7fe9-e9c6-4a5a-bf59-cafb6ed359b9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LoadingScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Camera.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Animation.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Shader.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\WebSocket.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\RenderTexture.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Common.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\AnimationData.cpp">
+      <Filter>src\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\AssetData.cpp">
+      <Filter>src\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\ProjectData.cpp">
+      <Filter>src\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\TileData.cpp">
+      <Filter>src\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ViewerScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Object.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Player\BasePlayer.cpp">
+      <Filter>src\Lib\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Player\SSPlayer.cpp">
+      <Filter>src\Lib\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Player\SpinePlayer.cpp">
+      <Filter>src\Lib\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Player\GifPlayer.cpp">
+      <Filter>src\Lib\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Player\ImagePlayer.cpp">
+      <Filter>src\Lib\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\gif\dgif_lib.c">
+      <Filter>src\External\gif</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\gif\egif_lib.c">
+      <Filter>src\External\gif</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\gif\gif_err.c">
+      <Filter>src\External\gif</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\gif\gif_font.c">
+      <Filter>src\External\gif</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\gif\gif_hash.c">
+      <Filter>src\External\gif</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\gif\gifalloc.c">
+      <Filter>src\External\gif</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\gif\openbsd-reallocarray.c">
+      <Filter>src\External\gif</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\gif\quantize.c">
+      <Filter>src\External\gif</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\collision\CollisionComponent.cpp">
+      <Filter>src\External\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\collision\CollisionDetaction.cpp">
+      <Filter>src\External\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\collision\CollisionUtils.cpp">
+      <Filter>src\External\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\AudioManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\DebugManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\FontManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\GameManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\InputManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\PrimitiveManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\JavascriptManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\VideoSprite.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\ObjectData.cpp">
+      <Filter>src\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\ObjectCommandData.cpp">
+      <Filter>src\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\SceneData.cpp">
+      <Filter>src\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\ObjectActionLinkConditionData.cpp">
+      <Filter>src\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Scene.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Tile.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\PlayData.cpp">
+      <Filter>src\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Collision.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Particle.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\ParticleManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Bullet.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\SharedMemory.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\ObjectCommand.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\BaseLayer.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Player.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Gui.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Effect.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\EffectManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Portal.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\GuiManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\SplineInterp\SplineInterp.cpp">
+      <Filter>src\External\SplineInterp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\OthersData.cpp">
+      <Filter>src\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\PhysicsObject.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Slope.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Course.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\CameraObject.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\BulletManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\ViewportLight.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\ImageManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\MovieManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_objectInstances.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_objects.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Runtime\FileUtils-runtime.cpp">
+      <Filter>src\Lib\Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_sceneInstances.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="DllPluginManager-win32.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\DllPluginManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\SSPlayer\SS6Player.cpp">
+      <Filter>src\External\SSPlayer\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\SSPlayer\SS6PlayerPlatform.cpp">
+      <Filter>src\External\SSPlayer\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_effect.cpp">
+      <Filter>src\External\SSPlayer\Common\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_effect2.cpp">
+      <Filter>src\External\SSPlayer\Common\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_effectfunction.cpp">
+      <Filter>src\External\SSPlayer\Common\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_matrix.cpp">
+      <Filter>src\External\SSPlayer\Common\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_PartState.cpp">
+      <Filter>src\External\SSPlayer\Common\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\SSPlayer\Common\Helper\DebugPrint.cpp">
+      <Filter>src\External\SSPlayer\Common\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_databases.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_fonts.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_images.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_texts.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_animations.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_movies.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_bgms.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_ses.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_voices.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_scenes.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_settings.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LogoScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_portals.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_tilesets.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\MtVector.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\NrArray.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\ThreadManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Data\DatabaseData.cpp">
+      <Filter>src\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_systems.cpp">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lib\MiddleFrame.cpp">
+      <Filter>src\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Manager\ProjectLoadingManager.cpp">
+      <Filter>src\Manager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LoadingScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\BaseLayer.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Camera.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Macros.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Animation.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Shader.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\WebSocket.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\RenderTexture.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Common.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\AnimationData.h">
+      <Filter>src\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\AssetData.h">
+      <Filter>src\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\ProjectData.h">
+      <Filter>src\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\TileData.h">
+      <Filter>src\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ViewerScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Object.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Player\BasePlayer.h">
+      <Filter>src\Lib\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Player\SSPlayer.h">
+      <Filter>src\Lib\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Player\SpinePlayer.h">
+      <Filter>src\Lib\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Player\GifPlayer.h">
+      <Filter>src\Lib\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Player\ImagePlayer.h">
+      <Filter>src\Lib\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\gif\gif_hash.h">
+      <Filter>src\External\gif</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\gif\gif_lib.h">
+      <Filter>src\External\gif</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\gif\gif_lib_private.h">
+      <Filter>src\External\gif</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\collision\collision_point.h">
+      <Filter>src\External\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\collision\CollisionComponent.hpp">
+      <Filter>src\External\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\collision\CollisionDetaction.hpp">
+      <Filter>src\External\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\collision\CollisionUtils.hpp">
+      <Filter>src\External\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\AudioManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\DebugManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\FontManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\GameManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\InputManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\PrimitiveManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\JavascriptManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\deprecated.h">
+      <Filter>src\External\vlc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc.h">
+      <Filter>src\External\vlc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_events.h">
+      <Filter>src\External\vlc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_media.h">
+      <Filter>src\External\vlc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_media_discoverer.h">
+      <Filter>src\External\vlc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_media_library.h">
+      <Filter>src\External\vlc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_media_list.h">
+      <Filter>src\External\vlc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_media_list_player.h">
+      <Filter>src\External\vlc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_media_player.h">
+      <Filter>src\External\vlc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_structures.h">
+      <Filter>src\External\vlc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_version.h">
+      <Filter>src\External\vlc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_vlm.h">
+      <Filter>src\External\vlc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\vlc.h">
+      <Filter>src\External\vlc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_about.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_access.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_addons.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_aout.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_aout_volume.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_arrays.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_atomic.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_avcodec.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_bits.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_block.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_block_helper.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_charset.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_codec.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_common.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_config.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_config_cat.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_configuration.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_cpu.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_demux.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_dialog.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_epg.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_es.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_es_out.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_events.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_filter.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_fingerprinter.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_fourcc.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_fs.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_gcrypt.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_http.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_httpd.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_image.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_inhibit.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_input.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_input_item.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_keys.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_main.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_md5.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_media_library.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_messages.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_meta.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_meta_fetcher.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_mime.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_modules.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_mouse.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_mtime.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_network.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_objects.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_opengl.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_picture.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_picture_fifo.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_picture_pool.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_playlist.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_plugin.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_probe.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_rand.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_services_discovery.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_sout.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_spu.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_stream.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_strings.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_subpicture.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_text_style.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_threads.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_tls.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_url.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_variables.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_video_splitter.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_vlm.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_vout.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_vout_display.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_vout_osd.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_vout_window.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_xlib.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_xml.h">
+      <Filter>src\External\vlc\plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\VideoSprite.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\ObjectData.h">
+      <Filter>src\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\ObjectCommandData.h">
+      <Filter>src\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\SceneData.h">
+      <Filter>src\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\ObjectActionLinkConditionData.h">
+      <Filter>src\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Scene.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Tile.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\PlayData.h">
+      <Filter>src\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Collision.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Particle.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\ParticleManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Bullet.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\SharedMemory.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppMacros.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\ObjectCommand.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Player.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Gui.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Effect.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\EffectManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Portal.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\GuiManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SplineInterp\SplineInterp.h">
+      <Filter>src\External\SplineInterp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\OthersData.h">
+      <Filter>src\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\PhysicsObject.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Slope.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Course.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\CameraObject.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\BulletManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\ViewportLight.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\ImageManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\MovieManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_objectInstances.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_objects.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Runtime\FileUtils-runtime.h">
+      <Filter>src\Lib\Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_sceneInstances.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="DllPluginManager-win32.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\DllPluginManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\SS6Player.h">
+      <Filter>src\External\SSPlayer\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\SS6PlayerData.h">
+      <Filter>src\External\SSPlayer\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\SS6PlayerPlatform.h">
+      <Filter>src\External\SSPlayer\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\SS6PlayerTypes.h">
+      <Filter>src\External\SSPlayer\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\MersenneTwister.h">
+      <Filter>src\External\SSPlayer\Common\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_cellmap.h">
+      <Filter>src\External\SSPlayer\Common\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_effect.h">
+      <Filter>src\External\SSPlayer\Common\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_effect2.h">
+      <Filter>src\External\SSPlayer\Common\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_effectfunction.h">
+      <Filter>src\External\SSPlayer\Common\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_macro.h">
+      <Filter>src\External\SSPlayer\Common\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_matrix.h">
+      <Filter>src\External\SSPlayer\Common\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_PartState.h">
+      <Filter>src\External\SSPlayer\Common\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\xorshift32.h">
+      <Filter>src\External\SSPlayer\Common\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Helper\DebugPrint.h">
+      <Filter>src\External\SSPlayer\Common\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Loader\SsEffectBehavior.h">
+      <Filter>src\External\SSPlayer\Common\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Loader\SsEffectElement.h">
+      <Filter>src\External\SSPlayer\Common\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Loader\ssloader.h">
+      <Filter>src\External\SSPlayer\Common\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Loader\ssloader_ssee.h">
+      <Filter>src\External\SSPlayer\Common\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Loader\sstypes.h">
+      <Filter>src\External\SSPlayer\Common\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_databases.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_fonts.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_images.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_texts.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_animations.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_movies.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_bgms.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_ses.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_voices.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_scenes.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_settings.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LogoScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_portals.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_tilesets.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\MtVector.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\NrArray.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\ThreadManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Data\DatabaseData.h">
+      <Filter>src\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_systems.h">
+      <Filter>src\Lib\Jsb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lib\MiddleFrame.h">
+      <Filter>src\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Manager\ProjectLoadingManager.h">
+      <Filter>src\Manager</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugMenuRuntime|Win32">
+      <Configuration>DebugMenuRuntime</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Runtime|Win32">
+      <Configuration>Runtime</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{76A39BB2-9B84-4C65-98A5-654D86B86F2A}</ProjectGuid>
+    <RootNamespace>test_win32</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2dx.props" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2d_headers.props" />
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2dx.props" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2d_headers.props" />
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2dx.props" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2d_headers.props" />
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2dx.props" />
+    <Import Project="..\cocos2d\cocos\2d\cocos2d_headers.props" />
+    <Import Project="PropertySheet.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration).win32\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">$(Configuration).win32\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'" />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">
+    <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">
+    <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(EngineRoot)external;$(EngineRoot)cocos\audio\include;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END);$(EngineRoot)external\spidermonkey\include\win32;$(EngineRoot)external\ImGUI;$(EngineRoot)external\win32-specific\OpenalSoft\include;..\Classes\External;..\Classes\Manager;..\Classes\External\vlc\include;$(ProjectDir)..\..\Editor\3rdparty\boost_1_62_0;$(EngineRoot)cocos</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_USRJSDLL;USE_AGTK;AGTK_DEBUG;AGTK_PLAYER;AGTKPLAYER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244;4819;4800;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies);$(_COCOS_LIB_WIN32_BEGIN);$(_COCOS_LIB_WIN32_END);mozjs-33.lib;OpenAL32.lib;dinput8.lib;libvlc.lib;libvlccore.lib;Version.lib;Dbghelp.lib</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories);$(_COCOS_LIB_PATH_WIN32_BEGIN);$(_COCOS_LIB_PATH_WIN32_END);$(ProjectDir)..\..\Editor\3rdparty\boost_1_62_0\stage\lib</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+xcopy /Y /Q /S /E /D "$(ProjectDir)..\Classes\External\vlc\prebuilt\*" "$(OutDir)"</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup>
+    <CustomBuildStep>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+xcopy "$(ProjectDir)..\Resources" "$(OutDir)\Resources\" /D /E /I /F /Y
+      </Command>
+      <Outputs>$(TargetName).cab</Outputs>
+      <Inputs>$(TargetFileName)</Inputs>
+    </CustomBuildStep>
+    <Link>
+      <ImageHasSafeExceptionHandlers Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <ClCompile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">-Zm256 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(EngineRoot)external;$(EngineRoot)cocos\audio\include;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END);$(EngineRoot)external\spidermonkey\include\win32;$(EngineRoot)external\ImGUI;$(EngineRoot)external\win32-specific\OpenalSoft\include;..\Classes\External;..\Classes\Manager;..\Classes\External\vlc\include;$(ProjectDir)..\..\Editor\3rdparty\boost_1_62_0</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_USRJSDLL;USE_AGTK;AGTK_RELEASE;AGTK_PLAYER;AGTKPLAYER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244;4819;4800;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ForcedIncludeFiles>stdafx.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>-Zm256 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libcurl.lib;websockets.lib;%(AdditionalDependencies);$(_COCOS_LIB_WIN32_BEGIN);$(_COCOS_LIB_WIN32_END);mozjs-33.lib;OpenAL32.lib;dinput8.lib;libvlc.lib;libvlccore.lib;libboost_system-vc120-mt-1_62.lib;Version.lib;Dbghelp.lib</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories);$(_COCOS_LIB_PATH_WIN32_BEGIN);$(_COCOS_LIB_PATH_WIN32_END);$(ProjectDir)..\..\Editor\3rdparty\boost_1_62_0\stage\lib</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <GenerateMapFile>true</GenerateMapFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+xcopy /Y /Q /S /E /D "$(ProjectDir)..\Classes\External\vlc\prebuilt\*" "$(OutDir)"</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(EngineRoot)external;$(EngineRoot)cocos\audio\include;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END);$(EngineRoot)external\spidermonkey\include\win32;$(EngineRoot)external\ImGUI;$(EngineRoot)external\win32-specific\OpenalSoft\include;..\Classes\External;..\Classes\Manager;..\Classes\External\vlc\include;$(ProjectDir)..\..\Editor\3rdparty\boost_1_62_0</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_USRJSDLL;USE_AGTK;AGTK_RELEASE;AGTK_PLAYER;AGTK_RUNTIME;AGTKPLAYER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244;4819;4800;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ForcedIncludeFiles>stdafx.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <AdditionalOptions>-Zm256 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libcurl.lib;websockets.lib;%(AdditionalDependencies);$(_COCOS_LIB_WIN32_BEGIN);$(_COCOS_LIB_WIN32_END);mozjs-33.lib;OpenAL32.lib;dinput8.lib;libvlc.lib;libvlccore.lib;libboost_system-vc120-mt-1_62.lib;Version.lib;Dbghelp.lib</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories);$(_COCOS_LIB_PATH_WIN32_BEGIN);$(_COCOS_LIB_PATH_WIN32_END);$(ProjectDir)..\..\Editor\3rdparty\boost_1_62_0\stage\lib</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <GenerateMapFile>true</GenerateMapFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+xcopy /Y /Q /S /E /D "$(ProjectDir)..\Classes\External\vlc\prebuilt\*" "$(OutDir)"</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(EngineRoot)external;$(EngineRoot)cocos\audio\include;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END);$(EngineRoot)external\spidermonkey\include\win32;$(EngineRoot)external\ImGUI;$(EngineRoot)external\win32-specific\OpenalSoft\include;..\Classes\External;..\Classes\Manager;..\Classes\External\vlc\include;$(ProjectDir)..\..\Editor\3rdparty\boost_1_62_0</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_USRJSDLL;USE_AGTK;AGTK_RELEASE;AGTK_PLAYER;AGTK_RUNTIME;AGTK_PREVIEW;AGTKPLAYER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244;4819;4800;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ForcedIncludeFiles>stdafx.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <AdditionalOptions>-Zm256 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libcurl.lib;websockets.lib;%(AdditionalDependencies);$(_COCOS_LIB_WIN32_BEGIN);$(_COCOS_LIB_WIN32_END);mozjs-33.lib;OpenAL32.lib;dinput8.lib;libvlc.lib;libvlccore.lib;libboost_system-vc120-mt-1_62.lib;Version.lib;Dbghelp.lib</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories);$(_COCOS_LIB_PATH_WIN32_BEGIN);$(_COCOS_LIB_PATH_WIN32_END);$(ProjectDir)..\..\Editor\3rdparty\boost_1_62_0\stage\lib</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <GenerateMapFile>true</GenerateMapFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+xcopy /Y /Q /S /E /D "$(ProjectDir)..\Classes\External\vlc\prebuilt\*" "$(OutDir)"</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\Data\AnimationData.cpp" />
+    <ClCompile Include="..\Classes\Data\AssetData.cpp" />
+    <ClCompile Include="..\Classes\Data\DatabaseData.cpp" />
+    <ClCompile Include="..\Classes\Data\ObjectActionLinkConditionData.cpp" />
+    <ClCompile Include="..\Classes\Data\ObjectCommandData.cpp" />
+    <ClCompile Include="..\Classes\Data\ObjectData.cpp" />
+    <ClCompile Include="..\Classes\Data\OthersData.cpp" />
+    <ClCompile Include="..\Classes\Data\PlayData.cpp" />
+    <ClCompile Include="..\Classes\Data\ProjectData.cpp" />
+    <ClCompile Include="..\Classes\Data\SceneData.cpp" />
+    <ClCompile Include="..\Classes\Data\TileData.cpp" />
+    <ClCompile Include="..\Classes\External\collision\CollisionComponent.cpp" />
+    <ClCompile Include="..\Classes\External\collision\CollisionDetaction.cpp" />
+    <ClCompile Include="..\Classes\External\collision\CollisionUtils.cpp" />
+    <ClCompile Include="..\Classes\External\gif\dgif_lib.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\gif\egif_lib.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\gif\gifalloc.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\gif\gif_err.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\gif\gif_font.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\gif\gif_hash.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\gif\openbsd-reallocarray.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\gif\quantize.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\Classes\External\SplineInterp\SplineInterp.cpp" />
+    <ClCompile Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_effect.cpp" />
+    <ClCompile Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_effect2.cpp" />
+    <ClCompile Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_effectfunction.cpp" />
+    <ClCompile Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_matrix.cpp" />
+    <ClCompile Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_PartState.cpp" />
+    <ClCompile Include="..\Classes\External\SSPlayer\Common\Helper\DebugPrint.cpp" />
+    <ClCompile Include="..\Classes\External\SSPlayer\SS6Player.cpp" />
+    <ClCompile Include="..\Classes\External\SSPlayer\SS6PlayerPlatform.cpp" />
+    <ClCompile Include="..\Classes\GameScene.cpp" />
+    <ClCompile Include="..\Classes\Lib\Animation.cpp" />
+    <ClCompile Include="..\Classes\Lib\BaseLayer.cpp" />
+    <ClCompile Include="..\Classes\Lib\Bullet.cpp" />
+    <ClCompile Include="..\Classes\Lib\Camera.cpp" />
+    <ClCompile Include="..\Classes\Lib\CameraObject.cpp" />
+    <ClCompile Include="..\Classes\Lib\Collision.cpp" />
+    <ClCompile Include="..\Classes\Lib\Common.cpp" />
+    <ClCompile Include="..\Classes\Lib\Course.cpp" />
+    <ClCompile Include="..\Classes\Lib\Effect.cpp" />
+    <ClCompile Include="..\Classes\Lib\Gui.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_animations.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_bgms.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_databases.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_fonts.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_images.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_movies.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_objectInstances.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_objects.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_portals.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_sceneInstances.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_scenes.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_ses.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_settings.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_systems.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_texts.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_tilesets.cpp" />
+    <ClCompile Include="..\Classes\Lib\Jsb\jsb_agtk_voices.cpp" />
+    <ClCompile Include="..\Classes\Lib\MiddleFrame.cpp" />
+    <ClCompile Include="..\Classes\Lib\MtVector.cpp" />
+    <ClCompile Include="..\Classes\Lib\NrArray.cpp" />
+    <ClCompile Include="..\Classes\Lib\Object.cpp" />
+    <ClCompile Include="..\Classes\Lib\ObjectCommand.cpp" />
+    <ClCompile Include="..\Classes\Lib\Particle.cpp" />
+    <ClCompile Include="..\Classes\Lib\PhysicsObject.cpp" />
+    <ClCompile Include="..\Classes\Lib\Player.cpp" />
+    <ClCompile Include="..\Classes\Lib\Player\BasePlayer.cpp" />
+    <ClCompile Include="..\Classes\Lib\Player\GifPlayer.cpp" />
+    <ClCompile Include="..\Classes\Lib\Player\ImagePlayer.cpp" />
+    <ClCompile Include="..\Classes\Lib\Player\SpinePlayer.cpp" />
+    <ClCompile Include="..\Classes\Lib\Player\SSPlayer.cpp" />
+    <ClCompile Include="..\Classes\Lib\Portal.cpp" />
+    <ClCompile Include="..\Classes\Lib\RenderTexture.cpp" />
+    <ClCompile Include="..\Classes\Lib\Runtime\FileUtils-runtime.cpp" />
+    <ClCompile Include="..\Classes\Lib\Scene.cpp" />
+    <ClCompile Include="..\Classes\Lib\Shader.cpp" />
+    <ClCompile Include="..\Classes\Lib\SharedMemory.cpp" />
+    <ClCompile Include="..\Classes\Lib\Slope.cpp" />
+    <ClCompile Include="..\Classes\Lib\Tile.cpp" />
+    <ClCompile Include="..\Classes\Lib\VideoSprite.cpp" />
+    <ClCompile Include="..\Classes\Lib\ViewportLight.cpp" />
+    <ClCompile Include="..\Classes\Lib\WebSocket.cpp" />
+    <ClCompile Include="..\Classes\LoadingScene.cpp" />
+    <ClCompile Include="..\Classes\LogoScene.cpp" />
+    <ClCompile Include="..\Classes\Manager\AudioManager.cpp" />
+    <ClCompile Include="..\Classes\Manager\BulletManager.cpp" />
+    <ClCompile Include="..\Classes\Manager\DebugManager.cpp" />
+    <ClCompile Include="..\Classes\Manager\DllPluginManager.cpp" />
+    <ClCompile Include="..\Classes\Manager\EffectManager.cpp" />
+    <ClCompile Include="..\Classes\Manager\FontManager.cpp" />
+    <ClCompile Include="..\Classes\Manager\GameManager.cpp" />
+    <ClCompile Include="..\Classes\Manager\GuiManager.cpp" />
+    <ClCompile Include="..\Classes\Manager\ImageManager.cpp" />
+    <ClCompile Include="..\Classes\Manager\InputManager.cpp" />
+    <ClCompile Include="..\Classes\Manager\JavascriptManager.cpp" />
+    <ClCompile Include="..\Classes\Manager\MovieManager.cpp" />
+    <ClCompile Include="..\Classes\Manager\ParticleManager.cpp" />
+    <ClCompile Include="..\Classes\Manager\PrimitiveManager.cpp" />
+    <ClCompile Include="..\Classes\Manager\ProjectLoadingManager.cpp" />
+    <ClCompile Include="..\Classes\Manager\ThreadManager.cpp" />
+    <ClCompile Include="..\Classes\ViewerScene.cpp" />
+    <ClCompile Include="DllPluginManager-win32.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Runtime|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugMenuRuntime|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\AppMacros.h" />
+    <ClInclude Include="..\Classes\Data\AnimationData.h" />
+    <ClInclude Include="..\Classes\Data\AssetData.h" />
+    <ClInclude Include="..\Classes\Data\DatabaseData.h" />
+    <ClInclude Include="..\Classes\Data\ObjectActionLinkConditionData.h" />
+    <ClInclude Include="..\Classes\Data\ObjectCommandData.h" />
+    <ClInclude Include="..\Classes\Data\ObjectData.h" />
+    <ClInclude Include="..\Classes\Data\OthersData.h" />
+    <ClInclude Include="..\Classes\Data\PlayData.h" />
+    <ClInclude Include="..\Classes\Data\ProjectData.h" />
+    <ClInclude Include="..\Classes\Data\SceneData.h" />
+    <ClInclude Include="..\Classes\Data\TileData.h" />
+    <ClInclude Include="..\Classes\External\collision\CollisionComponent.hpp" />
+    <ClInclude Include="..\Classes\External\collision\CollisionDetaction.hpp" />
+    <ClInclude Include="..\Classes\External\collision\CollisionUtils.hpp" />
+    <ClInclude Include="..\Classes\External\collision\collision_point.h" />
+    <ClInclude Include="..\Classes\External\gif\gif_hash.h" />
+    <ClInclude Include="..\Classes\External\gif\gif_lib.h" />
+    <ClInclude Include="..\Classes\External\gif\gif_lib_private.h" />
+    <ClInclude Include="..\Classes\External\SplineInterp\SplineInterp.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\MersenneTwister.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_cellmap.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_effect.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_effect2.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_effectfunction.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_macro.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_matrix.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\ssplayer_PartState.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Animator\xorshift32.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Helper\DebugPrint.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Loader\SsEffectBehavior.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Loader\SsEffectElement.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Loader\ssloader.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Loader\ssloader_ssee.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\Common\Loader\sstypes.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\SS6Player.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\SS6PlayerData.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\SS6PlayerPlatform.h" />
+    <ClInclude Include="..\Classes\External\SSPlayer\SS6PlayerTypes.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\deprecated.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_events.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_media.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_media_discoverer.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_media_library.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_media_list.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_media_list_player.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_media_player.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_structures.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_version.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\libvlc_vlm.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_about.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_access.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_addons.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_aout.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_aout_volume.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_arrays.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_atomic.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_avcodec.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_bits.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_block.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_block_helper.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_charset.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_codec.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_common.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_config.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_configuration.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_config_cat.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_cpu.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_demux.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_dialog.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_epg.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_es.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_es_out.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_events.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_filter.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_fingerprinter.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_fourcc.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_fs.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_gcrypt.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_http.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_httpd.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_image.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_inhibit.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_input.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_input_item.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_keys.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_main.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_md5.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_media_library.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_messages.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_meta.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_meta_fetcher.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_mime.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_modules.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_mouse.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_mtime.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_network.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_objects.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_opengl.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_picture.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_picture_fifo.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_picture_pool.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_playlist.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_plugin.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_probe.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_rand.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_services_discovery.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_sout.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_spu.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_stream.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_strings.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_subpicture.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_text_style.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_threads.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_tls.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_url.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_variables.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_video_splitter.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_vlm.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_vout.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_vout_display.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_vout_osd.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_vout_window.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_xlib.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\plugins\vlc_xml.h" />
+    <ClInclude Include="..\Classes\External\vlc\include\vlc\vlc.h" />
+    <ClInclude Include="..\Classes\GameScene.h" />
+    <ClInclude Include="..\Classes\Lib\Animation.h" />
+    <ClInclude Include="..\Classes\Lib\BaseLayer.h" />
+    <ClInclude Include="..\Classes\Lib\Bullet.h" />
+    <ClInclude Include="..\Classes\Lib\Camera.h" />
+    <ClInclude Include="..\Classes\Lib\CameraObject.h" />
+    <ClInclude Include="..\Classes\Lib\Collision.h" />
+    <ClInclude Include="..\Classes\Lib\Common.h" />
+    <ClInclude Include="..\Classes\Lib\Course.h" />
+    <ClInclude Include="..\Classes\Lib\Effect.h" />
+    <ClInclude Include="..\Classes\Lib\Gui.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_animations.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_bgms.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_databases.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_fonts.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_images.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_movies.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_objectInstances.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_objects.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_portals.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_sceneInstances.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_scenes.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_ses.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_settings.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_systems.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_texts.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_tilesets.h" />
+    <ClInclude Include="..\Classes\Lib\Jsb\jsb_agtk_voices.h" />
+    <ClInclude Include="..\Classes\Lib\Macros.h" />
+    <ClInclude Include="..\Classes\Lib\MiddleFrame.h" />
+    <ClInclude Include="..\Classes\Lib\MtVector.h" />
+    <ClInclude Include="..\Classes\Lib\NrArray.h" />
+    <ClInclude Include="..\Classes\Lib\Object.h" />
+    <ClInclude Include="..\Classes\Lib\ObjectCommand.h" />
+    <ClInclude Include="..\Classes\Lib\Particle.h" />
+    <ClInclude Include="..\Classes\Lib\PhysicsObject.h" />
+    <ClInclude Include="..\Classes\Lib\Player.h" />
+    <ClInclude Include="..\Classes\Lib\Player\BasePlayer.h" />
+    <ClInclude Include="..\Classes\Lib\Player\GifPlayer.h" />
+    <ClInclude Include="..\Classes\Lib\Player\ImagePlayer.h" />
+    <ClInclude Include="..\Classes\Lib\Player\SpinePlayer.h" />
+    <ClInclude Include="..\Classes\Lib\Player\SSPlayer.h" />
+    <ClInclude Include="..\Classes\Lib\Portal.h" />
+    <ClInclude Include="..\Classes\Lib\RenderTexture.h" />
+    <ClInclude Include="..\Classes\Lib\Runtime\FileUtils-runtime.h" />
+    <ClInclude Include="..\Classes\Lib\Scene.h" />
+    <ClInclude Include="..\Classes\Lib\Shader.h" />
+    <ClInclude Include="..\Classes\Lib\SharedMemory.h" />
+    <ClInclude Include="..\Classes\Lib\Slope.h" />
+    <ClInclude Include="..\Classes\Lib\Tile.h" />
+    <ClInclude Include="..\Classes\Lib\VideoSprite.h" />
+    <ClInclude Include="..\Classes\Lib\ViewportLight.h" />
+    <ClInclude Include="..\Classes\Lib\WebSocket.h" />
+    <ClInclude Include="..\Classes\LoadingScene.h" />
+    <ClInclude Include="..\Classes\LogoScene.h" />
+    <ClInclude Include="..\Classes\Manager\AudioManager.h" />
+    <ClInclude Include="..\Classes\Manager\BulletManager.h" />
+    <ClInclude Include="..\Classes\Manager\DebugManager.h" />
+    <ClInclude Include="..\Classes\Manager\DllPluginManager.h" />
+    <ClInclude Include="..\Classes\Manager\EffectManager.h" />
+    <ClInclude Include="..\Classes\Manager\FontManager.h" />
+    <ClInclude Include="..\Classes\Manager\GameManager.h" />
+    <ClInclude Include="..\Classes\Manager\GuiManager.h" />
+    <ClInclude Include="..\Classes\Manager\ImageManager.h" />
+    <ClInclude Include="..\Classes\Manager\InputManager.h" />
+    <ClInclude Include="..\Classes\Manager\JavascriptManager.h" />
+    <ClInclude Include="..\Classes\Manager\MovieManager.h" />
+    <ClInclude Include="..\Classes\Manager\ParticleManager.h" />
+    <ClInclude Include="..\Classes\Manager\PrimitiveManager.h" />
+    <ClInclude Include="..\Classes\Manager\ProjectLoadingManager.h" />
+    <ClInclude Include="..\Classes\Manager\ThreadManager.h" />
+    <ClInclude Include="..\Classes\ViewerScene.h" />
+    <ClInclude Include="DllPluginManager-win32.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cocos2d\cocos\2d\libcocos2d.vcxproj">
+      <Project>{98a51ba8-fc3a-415b-ac8f-8c7bd464e93e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\cocos2d\cocos\scripting\js-bindings\proj.win32\libjscocos2d.vcxproj">
+      <Project>{39379840-825a-45a0-b363-c09ffef864bd}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
