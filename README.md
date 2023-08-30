@@ -29,7 +29,7 @@
 ## ビルド方法
 
 Installerフォルダ内の
-[readme_j.txt](\Installer\readme_j.txt)
+[readme_j.txt](/Installer/readme_j.txt)
 をご確認ください。
 
 ## ライセンス
