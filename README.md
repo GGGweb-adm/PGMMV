@@ -28,7 +28,9 @@
 
 ## ビルド方法
 
-Installerフォルダ内の/Installer/readme_j.txtをご確認ください。
+Installerフォルダ内の
+[readme_j.txt](\Installer\readme_j.txt)
+をご確認ください。
 
 ## ライセンス
 
