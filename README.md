@@ -15,7 +15,7 @@
 ## 参加方法
 
 - 本プロジェクトでは、日本語と英語を主要言語として利用します。
-- ワークフローはGithub Flowです。PRを送るときは、新しいfeatureブランチを用意して、このリポジトリのmasterブランチに送る必要がありあます。http://scottchacon.com/2011/08/31/github-flow.html
+- ワークフローはGithub Flowです。PRを送るときは、新しいfeatureブランチを用意して、このリポジトリのmasterブランチに送る必要があります。http://scottchacon.com/2011/08/31/github-flow.html
 - 本プロジェクトでは、"Visual Studio 2022 Community"を利用します。
 - 本プロジェクトに関する議論の補助には、Pixel Game Maker MV公式Discordチャンネルを利用します。https://discord.com/invite/FtRVRkx5tP
 
