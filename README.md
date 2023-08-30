@@ -35,4 +35,4 @@ Installerフォルダ内の
 ## ライセンス
 
 MITライセンス (http://opensource.org/licenses/MIT) の下で配布されます。
-License.txt
+[LICENSE](LICENSE)
