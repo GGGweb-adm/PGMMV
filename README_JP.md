@@ -31,7 +31,7 @@ Installerフォルダ内の
 [readme_j.txt](/Installer/readme_j.txt)
 をご確認ください。
 
-## カスタマイズプレーヤーの利用方法 / How to use cutomized version of the player
+## カスタマイズプレーヤーの利用方法
 2023/11/21現在、カスタマイズされたプレーヤーアプリケーションをご利用いただくためには、
 [1.0.6-OSplayer-beta]ブランチをご利用いただく必要がございます。
 ※こちらのブランチは1.0.6.8 相当となります。
