@@ -2,6 +2,7 @@ How to make an open source version of Players of Pixel Game Maker MV.
 
 Preparation:
 First install Visual Studio 2022 Community.
+“Desktop development with C++” workload should be selected when install visual studio.
 If you use Visual Studio 2022 instead of Community, change "C:\Program Files\Microsoft Visual Studio 2022″ in build_player.bat.
 
 To build:
