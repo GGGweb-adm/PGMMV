@@ -1,7 +1,7 @@
 アクションゲームツクールMVのオープンソース版Playerのビルド方法です。
 
 準備：
-あらかじめ、Visual Sudio 2022 Communityをインストールしておいてください。
+あらかじめ、Visual Sudio 2022 Communityをインストールしておいてください。“Desktop development with C++”のワークロードのインストールも必要です。
 Communityでない、Visual Studio 2022を使用される場合は、build_player.bat内の、"C:\Program Files\Microsoft Visual Studio\2022"配下を指定するパスを変更してください。
 
 ビルド方法：
