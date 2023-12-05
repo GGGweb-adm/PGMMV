@@ -1169,8 +1169,7 @@ void ViewportLightSceneLayer::removeRenderTexture()
 
 void ViewportLightSceneLayer::createShader(cocos2d::Layer *layer)
 {
-	/*
-	視野に暗闇シェーダーを用いると加算描画が機能しないためコメントアウト
+	// ACT2-6467 暗闇シェーダーがある場合のみ視野シェーダーを有効にする
 	auto sceneLayer = this->getSceneLayer();
 
 	auto rtCtrl = sceneLayer->getRenderTexture();
@@ -1181,13 +1180,12 @@ void ViewportLightSceneLayer::createShader(cocos2d::Layer *layer)
 
 		auto shader = sceneLayer->getShader(agtk::Shader::kShaderColorDarkMask);
 		if (shader == nullptr) {
-			sceneLayer->setShader(agtk::Shader::kShaderColorDarkMask, 0.0f);
-			shader = sceneLayer->getShader(agtk::Shader::kShaderColorDarkMask);
-			sceneLayer->setIsShaderColorDarkMask(false);
+			return;
 		}
+
+		sceneLayer->setIsShaderColorDarkMask(false);
 		shader->setMaskTexture(renderTexture->getSprite()->getTexture());
 	}
-	*/
 }
 
 void ViewportLightSceneLayer::removeShader()
@@ -1401,8 +1399,8 @@ void ViewportLight::update(float delta)
 			if (viewportLightSceneLayer->containsVisibleViewportLightSwitch()) {
 				if (viewportLightSceneLayer->getRenderTexture() == nullptr) {
 					viewportLightSceneLayer->createRenderTexture();
-					viewportLightSceneLayer->createShader(_baseLayer);
 				}
+				viewportLightSceneLayer->createShader(_baseLayer);
 			}
 			else {
 				if (viewportLightSceneLayer->getRenderTexture()) {
