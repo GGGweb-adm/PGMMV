@@ -55,9 +55,10 @@
 // #AGTK-NX
 #if CC_TARGET_PLATFORM == CC_PLATFORM_NX
 #else
-#if defined(AGTK_RUNTIME)
+#ifdef AGTK_RUNTIME
 #define USE_RUNTIME	//2018.02.14 agusa-k: スタンドアローン動作用
-#elif defined(AGTK_PREVIEW) || !defined(AGTK_RUNTIME)
+#endif
+#if defined(AGTK_PREVIEW) || !defined(AGTK_RUNTIME)
 #define USE_PREVIEW	//2017.06.07 agusa-k: プレビュー機能用
 #endif
 #endif
