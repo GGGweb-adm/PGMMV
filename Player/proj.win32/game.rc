@@ -50,7 +50,7 @@ GLFW_ICON           ICON                    "res\\game.ico"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,6,5
+ FILEVERSION 1,0,6,6
  PRODUCTVERSION 1,0,6
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
@@ -68,7 +68,7 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "KADOKAWA CORPORATION\0"
             VALUE "FileDescription", "Pixel Game Maker MV player\0"
-            VALUE "FileVersion", "1.0.6.5\0"
+            VALUE "FileVersion", "1.0.6.6\0"
             VALUE "InternalName", "player\0"
             VALUE "LegalCopyright", "(C) KADOKAWA CORPORATION 2018\0"
             VALUE "ProductName", "player\0"
