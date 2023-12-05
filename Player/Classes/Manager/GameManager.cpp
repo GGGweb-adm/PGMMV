@@ -3440,6 +3440,11 @@ void GameManager::attachLoadData()
 								// レイヤーを移動させる
 								changeLayerFunc(scene, obj, layerId);
 							}
+#ifdef USE_SAR_OPTIMIZE_4
+							// スイッチ更新時に即座に自オブジェクトが影響を受けるスイッチリストを作成
+							obj->setupWatchSwitchList();
+							obj->registerSwitchWatcher();
+#endif
 
 							isLoaded = true;
 							loadedObjList->addObject(obj);
