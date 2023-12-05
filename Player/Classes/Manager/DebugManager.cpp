@@ -580,6 +580,8 @@ DebugDisplayData::DebugDisplayData()
 	_shaderList = nullptr;
 	_initShaderList = nullptr;
 	_tmpShaderList = nullptr;
+	_controllerList = nullptr;
+	_tmpControllerList = nullptr;
 }
 
 DebugDisplayData::~DebugDisplayData()
@@ -587,6 +589,8 @@ DebugDisplayData::~DebugDisplayData()
 	CC_SAFE_RELEASE_NULL(_shaderList);
 	CC_SAFE_RELEASE_NULL(_initShaderList);
 	CC_SAFE_RELEASE_NULL(_tmpShaderList);
+	CC_SAFE_RELEASE_NULL(_controllerList);
+	CC_SAFE_RELEASE_NULL(_tmpControllerList);
 }
 
 DebugDisplayData *DebugDisplayData::create(agtk::data::ProjectData *projectData)
@@ -612,6 +616,7 @@ bool DebugDisplayData::init(agtk::data::ProjectData *projectData)
 	int windowMagnification = projectData->getWindowMagnification();
 	bool magnifyWindow = projectData->getMagnifyWindow();
 	bool fullScreenFlag = projectData->getScreenSettings();
+	
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_NX)
 #endif
 
@@ -1396,6 +1401,7 @@ DebugManager::DebugManager()
 	_bShowEditOperationWindow = false;
 	_bShowGameDisplayWindow = false;
 	_bShowGameInformationWindow = false;
+	_bShowControllerWindow = false;
 #if !defined(USE_RUNTIME)
 	_bShowChangeSceneWindow = false;
 #endif
@@ -1784,6 +1790,28 @@ void DebugManager::showMainMenuBar()
 #endif
 			}
 #endif
+			// ACT2-6469 コントローラー設定メニュー
+			if (ImGui::MenuItem(GameManager::tr("Controller settings"), nullptr, &_bShowControllerWindow)) {
+				if (_bShowControllerWindow) {
+					auto displayData = this->getDisplayData();
+					// 現在のコントローラー情報をリストにする
+					auto controllerList = cocos2d::__Array::create();
+					auto projectPlayData = GameManager::getInstance()->getPlayData();
+					for (int id = agtk::data::kProjectSystemVariable1PController; id <= agtk::data::kProjectSystemVariable4PController; id++) {
+						auto selectControllerId = projectPlayData->getCommonVariableData(id)->getValue();
+						auto p = cocos2d::Integer::create(selectControllerId);
+						controllerList->insertObject(p, id-agtk::data::kProjectSystemVariable1PController);
+					}
+					displayData->setControllerList(controllerList);
+					// 同じものをTmpに保存
+					displayData->setTmpControllerList(controllerList);
+				}
+				else {
+#ifdef USE_PREVIEW
+					this->resetChangeShader();
+#endif
+				}
+			}
 			ImGui::EndMenu();
 		}
 // #AGTK-NX
@@ -3750,6 +3778,7 @@ void DebugManager::reset()
 	_bShowEditOperationWindow = false;
 	_bShowGameDisplayWindow = false;
 	_bShowGameInformationWindow = false;
+	_bShowControllerWindow = false;
 #if !defined(USE_RUNTIME)
 	_bShowChangeSceneWindow = false;
 #endif
@@ -3844,6 +3873,7 @@ void DebugManager::draw()
 	if (this->getShowMenuBar()) this->showSoundWindow();
 	if (this->getShowMenuBar()) this->showMethodOfOperationWindow();
 	if (this->getShowMenuBar()) this->showGameDisplayWindow();
+	if (this->getShowMenuBar()) this->showControllerWindow();
 // #AGTK-NX
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_NX)
 #endif
@@ -4419,6 +4449,96 @@ void DebugManager::showObjectInfoWindows()
 #endif
 		objectInfoWindow->draw();
 	}
+}
+
+// ACT2-6469 コントローラー設定
+void DebugManager::showControllerWindow()
+{
+	if (!_bShowControllerWindow) {
+		return;
+	}
+
+// #AGTK-NX
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_NX)
+	ImGui::SetNextWindowSize(ImVec2(400 * 2, 250 * 2), ImGuiCond_Appearing);//※サイズの設定できます。無くても自動補正してくれるようです。
+#else
+	ImGui::SetNextWindowSize(ImVec2(400, 250), ImGuiSetCond_Appearing);//※サイズの設定できます。無くても自動補正してくれるようです。
+#endif
+	ImGui::Begin(GameManager::tr("Controller settings"), &_bShowControllerWindow);
+
+	//////////////////////////////////
+	// ドロップダウン
+	//////////////////////////////////
+	int listCount = 1;
+	const char* padName[InputDataRaw::MAX_GAMEPAD + 2] = { nullptr };
+	padName[0] = GameManager::tr("None");
+
+	// #AGTK-NX
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_NX)
+	int deviceIdList[InputDataRaw::MAX_GAMEPAD + 2];
+	for (int i = 0; i < InputDataRaw::MAX_GAMEPAD + 2; i++) deviceIdList[i] = -1;
+	static int selected_button = -1;
+#else
+	//キーボード・マウス
+	padName[listCount++] = GameManager::tr("Keyboard/mouse");
+#endif
+	cocos2d::Ref* ref = nullptr;
+	CCARRAY_FOREACH(this->getDeviceControllerList(), ref) {
+		// #AGTK-NX
+#ifdef STATIC_DOWN_CAST
+		auto data = static_cast<DebugDeviceController*>(ref);
+#else
+		auto data = dynamic_cast<DebugDeviceController*>(ref);
+#endif
+		CC_ASSERT(data);
+		if (data->isConnected() == false) {
+			continue;
+		}
+		// #AGTK-NX
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_NX)
+		deviceIdList[listCount - 1] = data->getDeviceId();
+#endif
+		padName[listCount++] = (char*)data->getName();
+	}
+
+	//////////////////////////////////
+	// コントローラー数分表示
+	//////////////////////////////////
+	auto displayData = this->getDisplayData();
+	auto controllerList = displayData->getTmpControllerList();
+	for (int conNum = 1; conNum <= 4; conNum++) {
+		// 現在の値を取得する
+		auto val = dynamic_cast<cocos2d::Integer*>(controllerList->getObjectAtIndex(conNum - 1));
+		// ドロップダウンリストの値に変換する
+		auto listNum = val->getValue() < 0 ? 0 : val->getValue() +1;
+		auto str = ":" + to_string(conNum) + "P Controller";
+		bool isChange = ImGui::Combo(GameManager::tr(str.c_str()), &listNum, (const char**)padName, listCount);
+
+		// 変更したら値を格納する
+		if (isChange) {
+			auto changeVal = listNum == 0 ? -1 : listNum-1;
+			auto p = cocos2d::Integer::create(changeVal);
+			controllerList->setObject(p, conNum - 1);
+		}
+	}
+	
+	bool bOk = ImGui::Button(GameManager::tr("OK"));
+	if (bOk) {
+		// 値を入れる
+		auto projectPlayData = GameManager::getInstance()->getPlayData();
+		for (int id = agtk::data::kProjectSystemVariable1PController; id <= agtk::data::kProjectSystemVariable4PController; id++) {
+			auto val = dynamic_cast<cocos2d::Integer*>(controllerList->getObjectAtIndex(id - agtk::data::kProjectSystemVariable1PController));
+			projectPlayData->getCommonVariableData(id)->setValue(val->getValue());
+		}
+		GameManager::getInstance()->updateSystemVariableAndSwitch();
+	}
+	ImGui::SameLine();
+	bool bCancel = ImGui::Button(GameManager::tr("Cancel"));
+	if (bOk || bCancel) {
+		_bShowControllerWindow = false;
+	}
+	
+	ImGui::End();
 }
 
 void DebugManager::setFontName(const std::string &fontName)

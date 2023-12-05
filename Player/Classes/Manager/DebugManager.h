@@ -125,6 +125,7 @@ private:
 	CC_SYNTHESIZE(int, _windowMagnification, WindowMagnification);
 	CC_SYNTHESIZE(int, _mainLanguageId, MainLanguageId);
 	CC_SYNTHESIZE(bool, _disableScreenShake, DisableScreenShake);
+	CC_SYNTHESIZE_RETAIN(cocos2d::__Array*, _controllerList, ControllerList);
 // #AGTK-NX
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_NX)
 #endif
@@ -145,6 +146,7 @@ private:
 	CC_SYNTHESIZE(int, _tmpWindowMagnification, TmpWindowMagnification);
 	CC_SYNTHESIZE(int, _tmpMainLanguageId, TmpMainLanguageId);
 	CC_SYNTHESIZE(bool, _tmpDisableScreenShake, TmpDisableScreenShake);
+	CC_SYNTHESIZE_RETAIN(cocos2d::__Array*, _tmpControllerList, TmpControllerList);
 // #AGTK-NX
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_NX)
 #endif
@@ -300,6 +302,7 @@ private:
 	void showDebugObjectInfoWindow();
 	void showResourcesCommonWindow();
 	void showPerformanceAndSpeedSettingsWindow();
+	void showControllerWindow();//コントローラー設定ウィンドウ
 	void draw();
 	void pause(cocos2d::Node *node);
 	void resume(cocos2d::Node *node);
@@ -373,6 +376,7 @@ private:
 	bool _bShowWebSocketWindow;
 	bool _bShowMovieWindow;
 #endif
+	bool _bShowControllerWindow;
 	bool _bForcedClosePopupModal;
 	CC_SYNTHESIZE_READONLY(bool, _showDebugObjectInfoWindow, ShowDebugObjectInfoWindow);
 	CC_SYNTHESIZE_READONLY(bool, _showDebugNormalSceneObjectInfoFlag, ShowDebugNormalSceneObjectInfoFlag);

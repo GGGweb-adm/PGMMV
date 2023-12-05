@@ -7890,6 +7890,11 @@ const char *GameManager::tr(const char *sourceText, const char *disambiguation)
 			"Save to Slot %d. Are you sure?", "ja_JP", "Slot %d にセーブします。本当によろしいですか？", "zh_CN", "保存到Slot %d。你确定吗？", nullptr,
 			"Load from Slot %d. Are you sure?", "ja_JP", "Slot %d からロードします。本当によろしいですか？", "zh_CN", "从Slot %d 加载。 你确定吗？", nullptr,
 			"Delete Slot %d. Are you sure?", "ja_JP", "Slot %d を削除します。本当によろしいですか？", "zh_CN", "删除Slot %d。 你确定吗？", nullptr,
+			"Controller settings", "ja_JP", "コントローラーの設定", "zh_CN", "控制器设置", nullptr,
+			":1P Controller", "ja_JP", "：1Pコントローラー", "zh_CN", "玩家1控制器", nullptr,
+			":2P Controller", "ja_JP", "：2Pコントローラー", "zh_CN", "玩家2控制器", nullptr,
+			":3P Controller", "ja_JP", "：3Pコントローラー", "zh_CN", "玩家3控制器", nullptr,
+			":4P Controller", "ja_JP", "：4Pコントローラー", "zh_CN", "玩家4控制器", nullptr,
 			nullptr,
 
 			"Menu",
