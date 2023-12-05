@@ -1842,7 +1842,13 @@ bool ParticleGroup::init(cocos2d::Node *followTarget, int sceneId, int sceneLaye
 			agtk::Vertex4 vertex4;
 			auto existsConnect = obj->getTimeline(agtk::data::TimelineInfoData::kTimelineConnection, _connectionId, vertex4);
 			if (existsConnect) {
-				adjustPos = Scene::getPositionSceneFromCocos2d(vertex4.addr()[0]);
+				if (obj->getInstanceId() > agtk::data::SceneData::kMenuSceneId) {
+					// ACT2-5987 メニューシーンを取得、メニューシーンの高さを参照する
+					adjustPos = cocos2d::Vec2(vertex4.addr()[0].x, GameManager::getInstance()->getProjectData()->getMenuSceneData()->getLimitAreaHeight() - vertex4.addr()[0].y);
+				}
+				else {
+					adjustPos = Scene::getPositionSceneFromCocos2d(vertex4.addr()[0]);
+				}
 			}
 			adjustPos -= firstParticlePos;
 		}
