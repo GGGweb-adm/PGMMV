@@ -5715,6 +5715,9 @@ void newCalcWallHitInfo(agtk::Object* object, WallHitInfo &wallHitInfo, cocos2d:
 			float val = 0.0f;
 			if (moveVec.y < 0) {
 				auto wallGroup = object->getObjectCollision()->getWallHitInfoGroup();
+#if 1	// 2023.07.19 prevent an illegal access in Shin's game.
+				if (wallHitInfo.id >= 0 && wallHitInfo.id < wallGroup->getWallHitInfoList().size()){
+#endif
 				auto wall = wallGroup->getWallHitInfo(wallHitInfo.id);
 				auto rectWall = cocos2d::Rect(wall.boundMin, wall.size);
 				rectWall.origin.y -= moveVec.y;
@@ -5730,6 +5733,9 @@ void newCalcWallHitInfo(agtk::Object* object, WallHitInfo &wallHitInfo, cocos2d:
 						}
 					}
 				}
+#if 1	// 2023.07.19 until here.
+				}
+#endif
 			}
 
 			//乗っているオブジェクトがジャンプする時は、壁判定の補正内で処理を行う。
@@ -19667,7 +19673,6 @@ void Object::damaged(agtk::Object *object, agtk::data::PlayObjectData *damageRat
 void Object::playAction(int actionId, int moveDirectionId, int forceDirectionId)
 {
 	auto objectActionOld = this->getCurrentObjectAction();
-	objectActionOld->setIgnored(false); //以前のアクションの実行アクションが次に呼び出されたとき無視しないようにする(ACT2-6050)
 	auto objectAction = this->setup(actionId, moveDirectionId, forceDirectionId);
 	//ジャンプ動作を行う。
 	auto objectActionData = objectAction->getObjectActionData();
