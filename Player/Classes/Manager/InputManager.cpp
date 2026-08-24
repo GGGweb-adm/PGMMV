@@ -2,6 +2,7 @@
 #include "GameManager.h"
 #include "AppMacros.h"
 #include "Manager/DebugManager.h"
+#include <cmath>
 
 //-------------------------------------------------------------------------------------------------------------------
 InputMouseData::InputMouseData()
@@ -4445,6 +4446,12 @@ void InputManager::update(float delta)
 		auto cameraPos = camera->getLayerPosition();
 		point.x += (cameraPos->getValue().x *-1.0f);
 		point.y += (sceneSize.y - displaySize.height) - (cameraPos->getValue().y *-1.0f);
+		// NaN passes every comparison in the range check below (all comparisons with NaN are false)
+		// and would be stored in the Mouse X/Y system variables, which then breaks saving.
+		if (std::isnan(point.x) || std::isnan(point.y)) {
+			point.x = -1;
+			point.y = -1;
+		}
 		if (point.x < 0 || point.x >= sceneSize.x || point.y < 0 || point.y >= sceneSize.y) {
 			//領域外は(x,y):(-1,-1)にする。
 			point.x = -1;

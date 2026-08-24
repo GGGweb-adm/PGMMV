@@ -2225,8 +2225,13 @@ bool GameManager::save(rapidjson::Document& doc,int slotIdx)const
 {
 	rapidjson::StringBuffer buffer;
 	rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(buffer);
-	doc.Accept(writer);
-
+	// Accept() returns false when the document cannot be serialized, e.g. when a variable
+	// holds NaN/Infinity (rapidjson refuses to write them without kWriteNanAndInfFlag).
+	// The buffer then contains a truncated document, so never write it over the existing save.
+	if (!doc.Accept(writer)) {
+		CCLOG("** save: JSON serialization failed (NaN/Inf in save data?), existing save file left untouched");
+		return false;
+	}
 	auto const savedataPath = createAndGetSaveDir();
 
 	// セーブデータファイル保存
@@ -2234,7 +2239,47 @@ bool GameManager::save(rapidjson::Document& doc,int slotIdx)const
 	if (this->getEncryptSaveFile()){
 	}
 #endif
-	return FileUtils::getInstance()->writeStringToFile(buffer.GetString(), getSaveFilePath(slotIdx));
+	// Write to a temporary file first and swap it in only after the write succeeded,
+	// so a failed write can never leave a partial save file behind.
+	auto fileUtils = FileUtils::getInstance();
+	auto const savePath = getSaveFilePath(slotIdx);
+	auto const tmpPath = savePath + ".tmp";
+	auto const bakPath = savePath + ".bak";
+	if (!fileUtils->writeStringToFile(buffer.GetString(), tmpPath)) {
+		CCLOG("** save: failed to write %s, existing save file left untouched", tmpPath.c_str());
+		fileUtils->removeFile(tmpPath);
+		return false;
+	}
+	// Swap the new file in. The previous save is kept as .bak until the new one is in place,
+	// so at every point a complete save exists under a known name.
+	// (FileUtils::renameFile on Win32 deletes the destination before moving, so it must
+	// never be pointed at the live save file while that is the only good copy.)
+#ifdef USE_AGTK
+	FileUtils::clearFileExistCache(savePath);
+#endif
+	bool const hadOldSave = fileUtils->isFileExist(savePath);
+	if (hadOldSave && !fileUtils->renameFile(savePath, bakPath)) {
+		CCLOG("** save: failed to move %s aside, existing save file left untouched", savePath.c_str());
+		fileUtils->removeFile(tmpPath);
+		return false;
+	}
+	if (!fileUtils->renameFile(tmpPath, savePath)) {
+		CCLOG("** save: failed to put %s in place, restoring the previous save", savePath.c_str());
+		if (hadOldSave) {
+			fileUtils->renameFile(bakPath, savePath);
+		}
+		// Keep the .tmp file: it holds the complete new save data.
+		return false;
+	}
+	if (hadOldSave) {
+		fileUtils->removeFile(bakPath);
+	}
+#ifdef USE_AGTK
+	// renameFile() re-caches the destination as "missing" before it moves the file,
+	// so clear the entry or updateFileExistSwitch() would report no save after a first save into a slot.
+	FileUtils::clearFileExistCache(savePath);
+#endif
+	return true;
 }
 
 /**
