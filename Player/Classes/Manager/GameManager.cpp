@@ -2224,12 +2224,15 @@ void GameManager::saveData()
 bool GameManager::save(rapidjson::Document& doc,int slotIdx)const
 {
 	rapidjson::StringBuffer buffer;
-	rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(buffer);
-	// Accept() returns false when the document cannot be serialized, e.g. when a variable
-	// holds NaN/Infinity (rapidjson refuses to write them without kWriteNanAndInfFlag).
-	// The buffer then contains a truncated document, so never write it over the existing save.
+	// kWriteNanAndInfFlag: NaN and Infinity are legitimate variable values in this engine (division by
+	// zero yields NaN on purpose), so write them out as NaN / Infinity / -Infinity instead of failing.
+	// Needs the writeFlags forwarding fix in prettywriter.h. isExistsSaveData() and getSaveDataFile()
+	// parse them back with kParseNanAndInfFlag.
+	rapidjson::PrettyWriter<rapidjson::StringBuffer, rapidjson::UTF8<>, rapidjson::UTF8<>, rapidjson::CrtAllocator, rapidjson::kWriteNanAndInfFlag> writer(buffer);
+	// Accept() no longer fails on NaN/Infinity. Keep the check as a backstop: if serialization ever
+	// fails, the buffer holds a truncated document and must never be written over the existing save.
 	if (!doc.Accept(writer)) {
-		CCLOG("** save: JSON serialization failed (NaN/Inf in save data?), existing save file left untouched");
+		CCLOG("** save: JSON serialization failed, existing save file left untouched");
 		return false;
 	}
 	auto const savedataPath = createAndGetSaveDir();
@@ -2239,6 +2242,11 @@ bool GameManager::save(rapidjson::Document& doc,int slotIdx)const
 	if (this->getEncryptSaveFile()){
 	}
 #endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_NX)
+	// NX: keep the direct write. Save data there goes through the platform's own commit step, and the
+	// .tmp/.bak copies used below would count against the save data journal.
+	return FileUtils::getInstance()->writeStringToFile(buffer.GetString(), getSaveFilePath(slotIdx));
+#else
 	// Write to a temporary file first and swap it in only after the write succeeded,
 	// so a failed write can never leave a partial save file behind.
 	auto fileUtils = FileUtils::getInstance();
@@ -2280,6 +2288,7 @@ bool GameManager::save(rapidjson::Document& doc,int slotIdx)const
 	FileUtils::clearFileExistCache(savePath);
 #endif
 	return true;
+#endif
 }
 
 /**
@@ -2408,7 +2417,8 @@ bool GameManager::isExistsSaveData()
 		return false;
 	}
 	rapidjson::Document doc;
-	doc.Parse(jsonData.c_str());
+	// Save files may contain NaN / Infinity (see save()); the default parser rejects them.
+	doc.Parse<rapidjson::kParseNanAndInfFlag>(jsonData.c_str());
 	bool error = doc.HasParseError();
 	if (error) {
 		CCASSERT(0, "Error: Json Parse.");
@@ -2462,7 +2472,8 @@ bool  GameManager::getSaveDataFile(rapidjson::Document& doc)const
 		return false;
 	}
 
-	doc.Parse(jsonData.c_str());
+	// Save files may contain NaN / Infinity (see save()); the default parser rejects them.
+	doc.Parse<rapidjson::kParseNanAndInfFlag>(jsonData.c_str());
 	bool error = doc.HasParseError();
 	if (error) {
 		CCASSERT(0, "Error: Json Parse.");
