@@ -2229,8 +2229,8 @@ bool GameManager::save(rapidjson::Document& doc,int slotIdx)const
 	// Needs the writeFlags forwarding fix in prettywriter.h. isExistsSaveData() and getSaveDataFile()
 	// parse them back with kParseNanAndInfFlag.
 	rapidjson::PrettyWriter<rapidjson::StringBuffer, rapidjson::UTF8<>, rapidjson::UTF8<>, rapidjson::CrtAllocator, rapidjson::kWriteNanAndInfFlag> writer(buffer);
-	// Accept() no longer fails on NaN/Infinity. Keep the check as a backstop: if serialization ever
-	// fails, the buffer holds a truncated document and must never be written over the existing save.
+	// With kWriteNanAndInfFlag, Accept() does not fail on NaN/Infinity. The check is a backstop: if
+	// serialization ever fails, the buffer holds a truncated document and must never replace the existing save.
 	if (!doc.Accept(writer)) {
 		CCLOG("** save: JSON serialization failed, existing save file left untouched");
 		return false;
@@ -2243,7 +2243,7 @@ bool GameManager::save(rapidjson::Document& doc,int slotIdx)const
 	}
 #endif
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_NX)
-	// NX: keep the direct write. Save data there goes through the platform's own commit step, and the
+	// NX: direct write. Save data there goes through the platform's own commit step, and the
 	// .tmp/.bak copies used below would count against the save data journal.
 	return FileUtils::getInstance()->writeStringToFile(buffer.GetString(), getSaveFilePath(slotIdx));
 #else
