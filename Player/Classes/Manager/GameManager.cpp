@@ -2224,9 +2224,17 @@ void GameManager::saveData()
 bool GameManager::save(rapidjson::Document& doc,int slotIdx)const
 {
 	rapidjson::StringBuffer buffer;
-	rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(buffer);
-	doc.Accept(writer);
-
+	// kWriteNanAndInfFlag: NaN and Infinity are legitimate variable values in this engine (division by
+	// zero yields NaN on purpose), so write them out as NaN / Infinity / -Infinity instead of failing.
+	// Needs the writeFlags forwarding fix in prettywriter.h. isExistsSaveData() and getSaveDataFile()
+	// parse them back with kParseNanAndInfFlag.
+	rapidjson::PrettyWriter<rapidjson::StringBuffer, rapidjson::UTF8<>, rapidjson::UTF8<>, rapidjson::CrtAllocator, rapidjson::kWriteNanAndInfFlag> writer(buffer);
+	// With kWriteNanAndInfFlag, Accept() does not fail on NaN/Infinity. The check is a backstop: if
+	// serialization ever fails, the buffer holds a truncated document and must never replace the existing save.
+	if (!doc.Accept(writer)) {
+		CCLOG("** save: JSON serialization failed, existing save file left untouched");
+		return false;
+	}
 	auto const savedataPath = createAndGetSaveDir();
 
 	// セーブデータファイル保存
@@ -2234,7 +2242,53 @@ bool GameManager::save(rapidjson::Document& doc,int slotIdx)const
 	if (this->getEncryptSaveFile()){
 	}
 #endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_NX)
+	// NX: direct write. Save data there goes through the platform's own commit step, and the
+	// .tmp/.bak copies used below would count against the save data journal.
 	return FileUtils::getInstance()->writeStringToFile(buffer.GetString(), getSaveFilePath(slotIdx));
+#else
+	// Write to a temporary file first and swap it in only after the write succeeded,
+	// so a failed write can never leave a partial save file behind.
+	auto fileUtils = FileUtils::getInstance();
+	auto const savePath = getSaveFilePath(slotIdx);
+	auto const tmpPath = savePath + ".tmp";
+	auto const bakPath = savePath + ".bak";
+	if (!fileUtils->writeStringToFile(buffer.GetString(), tmpPath)) {
+		CCLOG("** save: failed to write %s, existing save file left untouched", tmpPath.c_str());
+		fileUtils->removeFile(tmpPath);
+		return false;
+	}
+	// Swap the new file in. The previous save is kept as .bak until the new one is in place,
+	// so at every point a complete save exists under a known name.
+	// (FileUtils::renameFile on Win32 deletes the destination before moving, so it must
+	// never be pointed at the live save file while that is the only good copy.)
+#ifdef USE_AGTK
+	FileUtils::clearFileExistCache(savePath);
+#endif
+	bool const hadOldSave = fileUtils->isFileExist(savePath);
+	if (hadOldSave && !fileUtils->renameFile(savePath, bakPath)) {
+		CCLOG("** save: failed to move %s aside, existing save file left untouched", savePath.c_str());
+		fileUtils->removeFile(tmpPath);
+		return false;
+	}
+	if (!fileUtils->renameFile(tmpPath, savePath)) {
+		CCLOG("** save: failed to put %s in place, restoring the previous save", savePath.c_str());
+		if (hadOldSave) {
+			fileUtils->renameFile(bakPath, savePath);
+		}
+		// Keep the .tmp file: it holds the complete new save data.
+		return false;
+	}
+	if (hadOldSave) {
+		fileUtils->removeFile(bakPath);
+	}
+#ifdef USE_AGTK
+	// renameFile() re-caches the destination as "missing" before it moves the file,
+	// so clear the entry or updateFileExistSwitch() would report no save after a first save into a slot.
+	FileUtils::clearFileExistCache(savePath);
+#endif
+	return true;
+#endif
 }
 
 /**
@@ -2363,7 +2417,8 @@ bool GameManager::isExistsSaveData()
 		return false;
 	}
 	rapidjson::Document doc;
-	doc.Parse(jsonData.c_str());
+	// Save files may contain NaN / Infinity (see save()); the default parser rejects them.
+	doc.Parse<rapidjson::kParseNanAndInfFlag>(jsonData.c_str());
 	bool error = doc.HasParseError();
 	if (error) {
 		CCASSERT(0, "Error: Json Parse.");
@@ -2417,7 +2472,8 @@ bool  GameManager::getSaveDataFile(rapidjson::Document& doc)const
 		return false;
 	}
 
-	doc.Parse(jsonData.c_str());
+	// Save files may contain NaN / Infinity (see save()); the default parser rejects them.
+	doc.Parse<rapidjson::kParseNanAndInfFlag>(jsonData.c_str());
 	bool error = doc.HasParseError();
 	if (error) {
 		CCASSERT(0, "Error: Json Parse.");

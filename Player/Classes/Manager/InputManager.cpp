@@ -2,6 +2,7 @@
 #include "GameManager.h"
 #include "AppMacros.h"
 #include "Manager/DebugManager.h"
+#include <cmath>
 
 //-------------------------------------------------------------------------------------------------------------------
 InputMouseData::InputMouseData()
@@ -4433,8 +4434,13 @@ void InputManager::update(float delta)
 		auto mouse = this->getInputDataRaw()->getMouse();
 		// ACT2-6408 ゲーム開始時マウス位置バグ対応
 		if (fabs(mouse->getPoint().x) < 1e-6 && fabs(mouse->getPoint().y) < 1e-6) {
-			mouse->setPoint(cocos2d::Vec2((ImGui::GetMousePos().x * displaySize.width / (sceneSize.x - (displaySize.width * 2))),
-				(sceneSize.y - ImGui::GetMousePos().y) * displaySize.height / sceneSize.y));
+			// The divisor is zero when the scene is exactly twice the display width, which would make the
+			// mouse position NaN (0/0) or Infinity. Skip the correction in that case.
+			float const denom = sceneSize.x - (displaySize.width * 2);
+			if (fabs(denom) >= 1e-6) {
+				mouse->setPoint(cocos2d::Vec2((ImGui::GetMousePos().x * displaySize.width / denom),
+					(sceneSize.y - ImGui::GetMousePos().y) * displaySize.height / sceneSize.y));
+			}
 		}
 		auto point = InputMouseData::CalcTransLeftUp(mouse->getPoint(), screenSize, displaySize);
 		auto layer = GameManager::getInstance()->getCurrentLayer();
@@ -4445,6 +4451,13 @@ void InputManager::update(float delta)
 		auto cameraPos = camera->getLayerPosition();
 		point.x += (cameraPos->getValue().x *-1.0f);
 		point.y += (sceneSize.y - displaySize.height) - (cameraPos->getValue().y *-1.0f);
+		// Safeguard: the divisor guard above removes the only known NaN source, but a NaN here would pass
+		// every comparison in the range check below (all comparisons with NaN are false), so map it to the
+		// same (-1, -1) used for "outside the scene" before it reaches the Mouse X/Y variables.
+		if (std::isnan(point.x) || std::isnan(point.y)) {
+			point.x = -1;
+			point.y = -1;
+		}
 		if (point.x < 0 || point.x >= sceneSize.x || point.y < 0 || point.y >= sceneSize.y) {
 			//領域外は(x,y):(-1,-1)にする。
 			point.x = -1;

@@ -617,12 +617,11 @@ bool FileUtils::writeDataToFile(const Data& data, const std::string& fullPath) c
         CC_BREAK_IF(!fp);
         size = data.getSize();
 
-        fwrite(data.getBytes(), size, 1, fp);
+        // Callers such as GameManager::save rely on the return value to avoid treating a partial file as a success.
+        bool written = (size == 0) || (fwrite(data.getBytes(), size, 1, fp) == 1);
+        bool closed = (fclose(fp) == 0);
 
-        fclose(fp);
-
-
-        return true;
+        return written && closed;
     } while (0);
 
     return false;
